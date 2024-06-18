@@ -1,22 +1,16 @@
-//  Add your code here
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema, model } = require("mongoose");
 
-const celebritySchema = new Schema({
-  name: {
-    type: String,
-    required: true
+const celebritySchema = new Schema(
+  {
+    name: { type: String, required: true },
+    occupation: { type: String, required: true },
+    catchPhrase: { type: String, required: true },
   },
-  occupation: {
-    type: String,
-    default: 'unknown'
-  },
-  catchPhrase: {
-    type: String,
-    default: ''
+  {
+    timestamps: true,
   }
-});
+);
 
-const Celebrity = mongoose.model('Celebrity', celebritySchema);
+const Celebrity = model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;
